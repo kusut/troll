@@ -1,0 +1,27 @@
+<%inherit file="base.html"/>
+<%namespace file="base.html" import="createform" />
+
+<strong>Post a new topic</strong>
+${createform(request.context, form)}
+
+      <hr/>
+      % for x in p:
+        <div class="post">
+	  <div class="post-meta">On <strong>${x['time']}</strong>, <strong>${x['author']}</strong> said:</div>
+	  <div class="post-content">${x['content']}</div>
+	  
+	  <% total = len(x['comments']) %>
+	  % if  total > 5:
+	  <div class="more">Viewing latest 5 comments from ${total} . Click reply to see the whole conversation</div>
+	  % endif
+	  % for c in x['comments'][-5:]:
+	    <div class="comment">
+	      <div class="comment-meta">On <strong>${c['time']}</strong>, <strong>${c['author']}</strong> replied:</div>
+	      <div class="comment-content">${c['comment']}</div>
+	    </div>
+	  % endfor
+	  </div>
+	  <a href="${request.resource_url(x)}">Reply</a>
+	</div>
+        <hr/>
+      % endfor

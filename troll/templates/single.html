@@ -1,0 +1,16 @@
+<%inherit file="base.html"/>
+<%namespace file="base.html" import="createform" />
+
+        <div class="post">
+	  <div class="post-meta">On <strong>${p['time']}</strong>, <strong>${p['author']}</strong> said:</div>
+	  <div class="post-content">${p['content']}</div>
+	  % for c in p['comments']:
+	    <div class="comment">
+	      <div class="comment-meta">On <strong>${c['time']}</strong>, <strong>${c['author']}</strong> replied:</div>
+	      <div class="comment-content">${c['comment']}</div>
+	    </div>
+	  % endfor
+	 </div>
+
+	<strong>Reply to this topic</strong>
+	${createform(request.context, form)}
