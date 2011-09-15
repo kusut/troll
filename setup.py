@@ -6,7 +6,10 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'readme.rst')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
-requires = ['pyramid', 'WebError', 'pymongo', 'WTForms']
+requires = [
+    'pyramid',
+    'pymongo',
+    'WTForms']
 
 setup(name='Troll',
       version='0.0',
