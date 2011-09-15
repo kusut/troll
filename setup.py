@@ -10,7 +10,8 @@ requires = [
     'pyramid',
     'pyramid_debugtoolbar',
     'pymongo',
-    'WTForms']
+    'WTForms',
+    'wtforms-recaptcha']
 
 setup(name='Troll',
       version='0.0',
